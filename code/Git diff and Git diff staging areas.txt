@@ -1,0 +1,427 @@
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ touch error.log
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        error.log
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ touch .gitignore
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ touch .gitignore
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+        error.log
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ touch add --a
+touch: unknown option -- a
+Try 'touch --help' for more information.
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git add --a
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   .gitignore
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git commit -m "Added git ignore"
+[master 8e719fa] Added git ignore
+ 1 file changed, 1 insertion(+)
+ create mode 100644 .gitignore
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        error - Copy (2).log
+        error - Copy (3).log
+        error - Copy (4).log
+        error - Copy (5).log
+        error - Copy.log
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git add --a
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    ewceew.pptx
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Div/
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+        deleted:    ewceew.pptx
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git add --a
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        static/
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git add --a
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+        new file:   static/Hii i want to you ()().txt
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git commit -m "Added static"
+[master 6cff73d] Added static
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+ create mode 100644 static/Hii i want to you ()().txt
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        static/Div/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   static/Hii i want to you ()().txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   static/Hii i want to you ()().txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git add --a
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   static/Hii i want to you ()().txt
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   static/Hii i want to you ()().txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        static/Div/
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   static/Hii i want to you ()().txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   static/Hii i want to you ()().txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+        modified:   static/Hii i want to you ()().txt
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   static/Hii i want to you ()().txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+        modified:   static/Hii i want to you ()().txt
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git add --a
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+        modified:   static/Hii i want to you ()().txt
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+        modified:   static/Hii i want to you ()().txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   static/Hii i want to you ()().txt
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git diff
+diff --git a/static/Hii i want to you ()().txt b/static/Hii i want to you ()().txt
+index 118d27b..acfc71e 100644
+--- a/static/Hii i want to you ()().txt
++++ b/static/Hii i want to you ()().txt
+@@ -1,3 +1 @@
+-
+-
+- khali bas aem ne aem aej
++khali bas aem ne aem aej
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git add --a
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git diff
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git diff --staged
+diff --git a/.gitignore b/.gitignore
+index 846b61e..bbf712b 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -1,2 +1,2 @@
+ *.log
+-Div/
+\ No newline at end of file
++Div/
+diff --git a/static/Hii i want to you ()().txt b/static/Hii i want to you ()().txt
+index e69de29..acfc71e 100644
+--- a/static/Hii i want to you ()().txt
++++ b/static/Hii i want to you ()().txt
+@@ -0,0 +1 @@
++khali bas aem ne aem aej
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git states
+git: 'states' is not a git command. See 'git --help'.
+
+The most similar command is
+        status
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+        modified:   static/Hii i want to you ()().txt
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$

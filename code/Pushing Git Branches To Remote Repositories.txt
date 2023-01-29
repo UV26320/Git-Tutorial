@@ -1,0 +1,231 @@
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (master)
+$ git log
+commit 23155ddee012b93e02afb54a58e3d0eb421b7648 (HEAD - master)
+Merge f41ee9f 81e9e74
+Author uday udayvara26@gamail.com
+Date   Thu Jan 12 155054 2023 +0530
+
+    Merged issue
+
+commit f41ee9f14cdb1f3772f02dd914636e2c0d2fe25b
+Author uday udayvara26@gamail.com
+Date   Thu Jan 12 154639 2023 +0530
+
+    This is c7
+
+commit 81e9e749278fa635cb8aa87654f72b254e43d7fc
+Author uday udayvara26@gamail.com
+Date   Thu Jan 12 154408 2023 +0530
+
+    This is c6
+
+commit 51f61655dd23e5eeb6bdc7baab64f28d4a69da1b
+Author uday udayvara26@gamail.com
+Date   Thu Jan 12 154354 2023 +0530
+
+    This is c5
+
+commit fd416a5a2136f7865d96d3cf552d2e2b6425387a
+Author uday udayvara26@gamail.com
+Date   Thu Jan 12 154250 2023 +0530
+
+    This is c4
+
+commit 7dc3fa70bc91aa8a69a6922a07f567a1f16a93ac
+Author uday udayvara26@gamail.com
+Date   Thu Jan 12 153923 2023 +0530
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (master)
+$ git branch
+ master
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (master)
+$ git checkout -m bugfix
+error pathspec 'bugfix' did not match any file(s) known to git
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (master)
+$ git checkout -b bugfix
+Switched to a new branch 'bugfix'
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (bugfix)
+$ git branch
+ bugfix
+  master
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (bugfix)
+$ git status
+On branch bugfix
+Changes not staged for commit
+  (use git addrm file... to update what will be committed)
+  (use git restore file... to discard changes in working directory)
+        modified   heey.pptx
+        deleted    uv1 -second.txt
+
+no changes added to commit (use git add andor git commit -a)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (bugfix)
+$ git add .
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (bugfix)
+$ git commit -m Bug Is Fixe
+[bugfix 8fa75be] Bug Is Fixe
+ 2 files changed, 5 deletions(-)
+ delete mode 100644 uv1 -second.txt
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (bugfix)
+$ git add .
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (bugfix)
+$ git status
+On branch bugfix
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (bugfix)
+$ git remote
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (bugfix)
+$ git remote -v
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (bugfix)
+$ git remote add origin git@github.comUVwithHack-Demo.git
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (bugfix)
+$ git remote
+origin
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (bugfix)
+$ git remote -v
+origin  git@github.comUVwithHack-Demo.git (fetch)
+origin  git@github.comUVwithHack-Demo.git (push)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (bugfix)
+$ git push -u origin master
+Enumerating objects 36, done.
+Counting objects 100% (3636), done.
+Delta compression using up to 8 threads
+Compressing objects 100% (3030), done.
+Writing objects 100% (3636), 44.54 KiB  201.00 KiBs, done.
+Total 36 (delta 16), reused 0 (delta 0), pack-reused 0
+remote Resolving deltas 100% (1616), done.
+To github.comUVwithHack-Demo.git
+  [new branch]      master - master
+branch 'master' set up to track 'originmaster'.
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (bugfix)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'originmaster'.
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (master)
+$ git remote
+origin
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (master)
+$ git remote -v
+origin  git@github.comUVwithHack-Demo.git (fetch)
+origin  git@github.comUVwithHack-Demo.git (push)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (master)
+$ git branch
+  bugfix
+ master
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (master)
+$ git status
+On branch master
+Your branch is up to date with 'originmaster'.
+
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (master)
+$ git checkout bugfix
+Switched to branch 'bugfix'
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (bugfix)
+$ git push origin bugfix
+Enumerating objects 5, done.
+Counting objects 100% (55), done.
+Delta compression using up to 8 threads
+Compressing objects 100% (33), done.
+Writing objects 100% (33), 123.51 KiB  448.00 KiBs, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote Resolving deltas 100% (11), completed with 1 local object.
+remote
+remote Create a pull request for 'bugfix' on GitHub by visiting
+remote      httpsgithub.comUVwithHack-Demopullnewbugfix
+remote
+To github.comUVwithHack-Demo.git
+  [new branch]      bugfix - bugfix
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (bugfix)
+$ git status
+On branch bugfix
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (bugfix)
+$ git push origin bugfixmybugfix
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote
+remote Create a pull request for 'mybugfix' on GitHub by visiting
+remote      httpsgithub.comUVwithHack-Demopullnewmybugfix
+remote
+To github.comUVwithHack-Demo.git
+  [new branch]      bugfix - mybugfix
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (bugfix)
+$ git branch
+ bugfix
+  master
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (bugfix)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'originmaster'.
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (master)
+$ git branch
+  bugfix
+ master
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (master)
+$ git branch -d bugfix
+error The branch 'bugfix' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D bugfix'.
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (master)
+$ git merge bugfix
+Updating 23155dd..8fa75be
+Fast-forward
+ heey.pptx        Bin 43477 - 140193 bytes
+ uv1 -second.txt    5 -----
+ 2 files changed, 5 deletions(-)
+ delete mode 100644 uv1 -second.txt
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (master)
+$ git branch -d bugfix
+Deleted branch bugfix (was 8fa75be).
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (master)
+$ git push origin master
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.comUVwithHack-Demo.git
+   23155dd..8fa75be  master - master
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (master)
+$ git s
+On branch master
+Your branch is up to date with 'originmaster'.
+
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~DocumentsGit TutorialGit (master)
+$ git push -d origin bugfix
+To github.comUVwithHack-Demo.git
+ - [deleted]         bugfix

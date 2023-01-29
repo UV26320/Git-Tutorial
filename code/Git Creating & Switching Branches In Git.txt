@@ -1,0 +1,294 @@
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git s
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    ewceew.pptx -> heey.pptx
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git resotre ewceew.pptx
+git: 'resotre' is not a git command. See 'git --help'.
+
+The most similar command is
+        restore
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git restore ewceew.pptx
+error: pathspec 'ewceew.pptx' did not match any file(s) known to git
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git restore 'ewceew.pptx'
+error: pathspec 'ewceew.pptx' did not match any file(s) known to git
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git restore heey.pptx
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git s
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    ewceew.pptx -> heey.pptx
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git commit -m "Mission is successfully completed"
+[master d99c12f] Mission is successfully completed
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rename ewceew.pptx => heey.pptx (100%)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git s
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git checkout -b devlop
+Switched to a new branch 'devlop'
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (devlop)
+$ git s
+On branch devlop
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    uday
+        deleted:    uday.docx
+        deleted:    uday.pub
+        deleted:    uv1 -second.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Importance fill/
+        issus/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (devlop)
+$ git add .
+warning: in the working copy of 'Importance fill/uday', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'Importance fill/uday.pub', LF will be replaced by CRLF the next time Git touches it
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (devlop)
+$ git add .
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (devlop)
+$ git s
+On branch devlop
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    uday -> Importance fill/uday
+        renamed:    uday.docx -> Importance fill/uday.docx
+        renamed:    uday.pub -> Importance fill/uday.pub
+        renamed:    uv1 -second.txt -> issus/uv1 -second.txt
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (devlop)
+$ git commit -m "Beautified Structure"
+[devlop 09aab2b] Beautified Structure
+ 4 files changed, 0 insertions(+), 0 deletions(-)
+ rename uday => Importance fill/uday (100%)
+ rename uday.docx => Importance fill/uday.docx (100%)
+ rename uday.pub => Importance fill/uday.pub (100%)
+ rename uv1 -second.txt => issus/uv1 -second.txt (100%)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (devlop)
+$ git s
+On branch devlop
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (devlop)
+$ git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ rm -rf .git
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git
+$ git init
+Initialized empty Git repository in C:/Users/Uday Vara/Documents/Git Tutorial/Git/.git/
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git s
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+        Div/
+        heey.pptx
+        issus/
+        mypanda/
+        static/
+        uday.docx
+        uv1 -second.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git add .
+warning: adding embedded git repository: mypanda
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint:
+hint:   git submodule add <url> mypanda
+hint:
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint:
+hint:   git rm --cached mypanda
+hint:
+hint: See "git help submodule" for more information.
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git add --a
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git s
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   .gitignore
+        new file:   Div/Total amount.docx
+        new file:   heey.pptx
+        new file:   issus/error - Copy (2).log
+        new file:   issus/error - Copy (3).log
+        new file:   issus/error - Copy (4).log
+        new file:   issus/error - Copy (5).log
+        new file:   issus/error - Copy.log
+        new file:   issus/error.log
+        new file:   mypanda
+        new file:   static/Div/hey its me.txt
+        new file:   static/Hii i want to you ()().txt
+        new file:   uday.docx
+        new file:   uv1 -second.txt
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git commit -m "Everything is done at that time"
+[master (root-commit) 39168b0] Everything is done at that time
+ 14 files changed, 102 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 Div/Total amount.docx
+ create mode 100644 heey.pptx
+ create mode 100644 issus/error - Copy (2).log
+ create mode 100644 issus/error - Copy (3).log
+ create mode 100644 issus/error - Copy (4).log
+ create mode 100644 issus/error - Copy (5).log
+ create mode 100644 issus/error - Copy.log
+ create mode 100644 issus/error.log
+ create mode 160000 mypanda
+ create mode 100644 static/Div/hey its me.txt
+ create mode 100644 static/Hii i want to you ()().txt
+ create mode 100644 uday.docx
+ create mode 100644 uv1 -second.txt
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git s
+On branch master
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git checkout -b devlop
+Switched to a new branch 'devlop'
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (devlop)
+$ git s
+On branch devlop
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    .gitignore
+        deleted:    Div/Total amount.docx
+        deleted:    heey.pptx
+        deleted:    static/Div/hey its me.txt
+        deleted:    static/Hii i want to you ()().txt
+        deleted:    uday.docx
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Hii i want to you ()().txt
+        Pull Request/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (devlop)
+$ git add --a
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (devlop)
+$ git s
+On branch devlop
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    Div/Total amount.docx
+        renamed:    static/Hii i want to you ()().txt -> Hii i want to you ()().txt
+        renamed:    .gitignore -> Pull Request/.gitignore
+        renamed:    static/Div/hey its me.txt -> Pull Request/Div/hey its me.txt
+        renamed:    heey.pptx -> Pull Request/heey.pptx
+        renamed:    uday.docx -> Pull Request/uday.docx
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (devlop)
+$ git commit -m "Again changes is done"
+[devlop 1cc17b8] Again changes is done
+ 6 files changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 Div/Total amount.docx
+ rename static/Hii i want to you ()().txt => Hii i want to you ()().txt (100%)
+ rename .gitignore => Pull Request/.gitignore (100%)
+ rename {static => Pull Request}/Div/hey its me.txt (100%)
+ rename heey.pptx => Pull Request/heey.pptx (100%)
+ rename uday.docx => Pull Request/uday.docx (100%)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (devlop)
+$ git s
+On branch devlop
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (devlop)
+$ git checkout master
+Switched to branch 'master'
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git checkout devlop
+Switched to branch 'devlop'
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (devlop)
+$ git checkout master
+Switched to branch 'master'
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git checkout devlop
+Switched to branch 'devlop'
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (devlop)
+$ git checkout master
+Switched to branch 'master'
+D       mypanda
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git branch
+  devlop
+* master
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$

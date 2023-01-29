@@ -1,0 +1,387 @@
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ touch error.log
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        error.log
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ touch .gitignore
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+        error.log
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git add --a
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   .gitignore
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   .gitignore
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git commit -m "added gitignore"
+[master 9011dc8] added gitignore
+ 1 file changed, 1 insertion(+)
+ create mode 100644 .gitignore
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        error.log.log
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        copy.log.txt
+        jgerk.log.txt
+        udu.log.txt
+        uubu.log.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        copy.log.txt
+        jgerk.log.txt
+        udu.log.txt
+        uubu.log.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git add aa
+fatal: pathspec 'aa' did not match any files
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git add --a
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git add --a
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git add --a
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    1st.txt
+        deleted:    uday.pptx
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        uday/
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+        deleted:    1st.txt
+        deleted:    uday.pptx
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Project/
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Project/
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git add --a
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git add --a
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git add --a
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git add --a
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   .gitignore
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$

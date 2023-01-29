@@ -1,0 +1,876 @@
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git log
+commit 0971f55d27680245865eecb4f5d6270fdc45b130 (HEAD -> main, origin/main, origin/HEAD)
+Author: Luke Manley <lukemanley@gmail.com>
+commit 0971f55d27680245865eecb4f5d6270fdc45b130 (HEAD -> main, origin/main, origin/HEAD)
+Author: Luke Manley <lukemanley@gmail.com>
+Date:   Sat Dec 24 15:18:48 2022 -0500
+
+    BUG: Series(strings).astype("float64[pyarrow]") raising (#50430)
+
+    * BUG: Series(strings).astype("float64[pyarrow]") raising
+
+    * gh refs
+
+    * simplify
+
+commit 4878dfe551da2fa8e2bc33e774b595f099bfa74e
+Author: Patrick Hoefler <61934744+phofl@users.noreply.github.com>
+Date:   Sat Dec 24 20:49:35 2022 +0100
+
+    CI: Unpin pyarrow<10 (#50314)
+
+    * CI: Unpin pyarrow<10
+
+    * Skip test
+
+commit 9918c84043a340cc0a62625273c842c05f3d71b1
+Author: Matthew Roeschke <10647082+mroeschke@users.noreply.github.com>
+Date:   Sat Dec 24 02:01:11 2022 -0800
+
+    ENH: Add cumsum to ArrowExtensionArray (#50389)
+
+commit 1b653b1c23f7a5f9fbaede993cf9370dba79b1fc
+Author: Marco Edward Gorelli <33491632+MarcoGorelli@users.noreply.github.com>
+Date:   Sat Dec 24 07:11:21 2022 +0000
+
+    STYLE pre-commit check to ensure that test functions name starts with test (#50397)
+
+    * add check
+
+    * put test back, its not a helper
+
+    * reword
+
+    * typing
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git log -p
+commit 0971f55d27680245865eecb4f5d6270fdc45b130 (HEAD -> main, origin/main, origin/HEAD)
+Author: Luke Manley <lukemanley@gmail.com>
+Date:   Sat Dec 24 15:18:48 2022 -0500
+
+    BUG: Series(strings).astype("float64[pyarrow]") raising (#50430)
+
+    * BUG: Series(strings).astype("float64[pyarrow]") raising
+
+    * gh refs
+
+    * simplify
+
+diff --git a/doc/source/whatsnew/v2.0.0.rst b/doc/source/whatsnew/v2.0.0.rst
+index 75ba169600..12b0d90e68 100644
+--- a/doc/source/whatsnew/v2.0.0.rst
++++ b/doc/source/whatsnew/v2.0.0.rst
+@@ -830,6 +830,7 @@ Conversion
+ - Bug in :meth:`Series.convert_dtypes` not converting dtype to nullable dtype when :class:`Series` contains ``NA`` and has dtype ``object`` (:issue:`48791`)
+ - Bug where any :class:`ExtensionDtype` subclass with ``kind="M"`` would be interpreted as a timezone type (:issue:`34986`)
+ - Bug in :class:`.arrays.ArrowExtensionArray` that would raise ``NotImplementedError`` when passed a sequence of strings or binary (:issue:`49172`)
++- Bug in :meth:`Series.astype` raising ``pyarrow.ArrowInvalid`` when converting from a non-pyarrow string dtype to a pyarrow numeric type (:issue:`50430`)
+ - Bug in :func:`to_datetime` was not respecting ``exact`` argument when ``format`` was an ISO8601 format (:issue:`12649`)
+ - Bug in :meth:`TimedeltaArray.astype` raising ``TypeError`` when converting to a pyarrow duration type (:issue:`49795`)
+ -
+diff --git a/pandas/core/arrays/arrow/array.py b/pandas/core/arrays/arrow/array.py
+index 6250c298f2..7e954b3d1d 100644
+--- a/pandas/core/arrays/arrow/array.py
++++ b/pandas/core/arrays/arrow/array.py
+@@ -206,17 +206,17 @@ class ArrowExtensionArray(OpsMixin, ExtensionArray):
+         Construct a new ExtensionArray from a sequence of scalars.
+         """
+         pa_dtype = to_pyarrow_type(dtype)
+-        is_cls = isinstance(scalars, cls)
+-        if is_cls or isinstance(scalars, (pa.Array, pa.ChunkedArray)):
+-            if is_cls:
+-                scalars = scalars._data
+-            if pa_dtype:
+-                scalars = scalars.cast(pa_dtype)
+-            return cls(scalars)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git log --stack
+fatal: unrecognized argument: --stack
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git log --stact
+fatal: unrecognized argument: --stact
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git log --stat
+commit 0971f55d27680245865eecb4f5d6270fdc45b130 (HEAD -> main, origin/main, origin/HEAD)
+Author: Luke Manley <lukemanley@gmail.com>
+Date:   Sat Dec 24 15:18:48 2022 -0500
+
+    BUG: Series(strings).astype("float64[pyarrow]") raising (#50430)
+
+    * BUG: Series(strings).astype("float64[pyarrow]") raising
+
+    * gh refs
+
+    * simplify
+
+ doc/source/whatsnew/v2.0.0.rst       |  1 +
+ pandas/core/arrays/arrow/array.py    | 22 +++++++++++-----------
+ pandas/tests/extension/test_arrow.py |  8 ++++++++
+ 3 files changed, 20 insertions(+), 11 deletions(-)
+
+commit 4878dfe551da2fa8e2bc33e774b595f099bfa74e
+Author: Patrick Hoefler <61934744+phofl@users.noreply.github.com>
+Date:   Sat Dec 24 20:49:35 2022 +0100
+
+    CI: Unpin pyarrow<10 (#50314)
+
+    * CI: Unpin pyarrow<10
+
+    * Skip test
+
+ .github/actions/setup-conda/action.yml          | 2 +-
+ .github/workflows/ubuntu.yml                    | 2 +-
+ ci/deps/actions-310.yaml                        | 2 +-
+ ci/deps/actions-38-downstream_compat.yaml       | 2 +-
+ ci/deps/actions-38.yaml                         | 2 +-
+ ci/deps/actions-39.yaml                         | 2 +-
+ ci/deps/circle-38-arm64.yaml                    | 2 +-
+ environment.yml                                 | 2 +-
+ pandas/compat/pyarrow.py                        | 2 ++
+ pandas/tests/arrays/interval/test_interval.py   | 2 +-
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git log --pretty=online
+fatal: invalid --pretty format: online
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git log --pretty=oneline
+0971f55d27680245865eecb4f5d6270fdc45b130 (HEAD -> main, origin/main, origin/HEAD) BUG: Series(strings).astype("float64[pyarrow]") raising (#50430)
+4878dfe551da2fa8e2bc33e774b595f099bfa74e CI: Unpin pyarrow<10 (#50314)
+9918c84043a340cc0a62625273c842c05f3d71b1 ENH: Add cumsum to ArrowExtensionArray (#50389)
+1b653b1c23f7a5f9fbaede993cf9370dba79b1fc STYLE pre-commit check to ensure that test functions name starts with test (#50397)
+2e1206e112f126c7c8508cba44b5b7975e24ca91 TST: Consolidate tests that raise in groupby (#50404)
+9993ec4059f15758c72bf943ccbc63edfb709f90 CLN: Remove unused rewrite warning (#50403)
+7bc699fbb8dd94177d723dd637d7e99fe0eea65a BUG: pd.DateOffset handle milliseconds (#50020)
+cc478c4c815a85912c3fa8f4ec400f8b261b97e0  BUG guess_Datetime_format doesn't guess 27.03.2003 14:55:00.000 (#50319)
+49ceb1b1066a3474684052aff229f7c7931a56e5 CLN remove unused functions (#50394)
+be2a09e37ab74942378b8297a1ea5c7d6d78e3f3 DOC: Add drop to MultiIndex docs (#50352)
+1ce4455424898eb08719295205faacb2f0d9a4b1 BUG: Fix unintialized strlen when PyUnicode_AsUTF8AndSize fails (#50387)
+fabdd5d26de7adf05da5fdf874d2fa20f2250e94 REF: Rename mode.nullable_backend to mode.dtype_backend (#50291)
+bf7960d004d2e517d1183a790bab3911792b1ed4 DEPR: 1.x deprecation cleanups (#50385)
+4e4be0bfa8f74b9d453aa4163d95660c04ffea0c DEPR: enforce inplaceness for df.loc[:, foo]=bar (#49775)
+4bd55a40e082d311e4fcaa97a203c9348ba8df3a CLN: Remove pre-1.5 deprecations (#50377)
+280fbf6dd472b868e3849e81998db6f266b96514 TST: Replace parameterize with existing test fixture (#50350)
+c49733c274cd7007231b77f0765209aaa02c624b CI: Enable pytest -W:::pandas on some builds (#50354)
+50f19b6ed5f335d2396825ad5ec055f2607a39fa CLN/TST: Remove old filterwarnings (#50368)
+8469f746de31aa40b409c143b3d542f09e2378a0 DOC: don't teach infer_datetime_format in user_guide (#50334)
+ca0434994ea944f81417e304203ca9fc494fd2a5  BUG: out-of-bounds pydatetime with errors='coerce' and non-ISO format coerces all elements to NaT (#50265)
+738564e6eb0f974a3bdb579e0fb644f909918581 TYP: keyword-only NDFrame.fillna (#50345)
+b002462fb52356da5b493ef6fdf7b36598f7252b Fix link to JSON Table Schema (#50363)
+f31da23cac7b06cfa81b0ba27ae103af7bc9da00 CI: Temporarily pin numpy (#50356)
+ca3e0c875fe0dd862afa88b905e8aa4a44815231 DOC: added the link to array in string_arrow.py (#50241)
+5237be554ac5b4618e22a9dbc48e136395607d13 BUG: Index[offset_objects] + Period (#50282)
+6cbd87b38b1d069fb83d3e094866a8192b5cdb63 ENH: Implement fastpath for masked indexes in join (#50310)
+d20c02b3fca0956174b6b1dd0e3a2d24cc700a65 BUG: misleading message when using to_datetime with format='%V %a' (#50309)
+bf05f35d16afe2bfb8f82cb257ee9a982b95fee1 BUG: arithmetic ops not propagating mask when combining mask arrays and numpy (#50322)
+07b363ea8eee184df30b54bfae9acd04511e1cda ENH: Include column for ea comparison in asserters (#50323)
+901501375bd45242f3dc75bc1de593ffb5d8dfd1 BUG: Series constructor raising with NA and bools and Int dtype (#50328)
+edd401b48ffa5e707ad1043b471d2f3d51e51e28 PERF: Calculate mask in interpolate only once (#50326)
+ac762aff0897373c2e25fe666b50ba24b545cd72 BUG: to_numpy for PandasArray does not handle na_value (#50331)
+44fc0fdac887cba288a24d386863aa764fb2a2b6 BUG: read_json raising with table orient and NA values (#50332)
+0e0b987ced52c1461af9f0f5f01feb5555e78ea3 BUG: to_string ignoring formatter for FloatingArray (#50333)
+:...skipping...
+0971f55d27680245865eecb4f5d6270fdc45b130 (HEAD -> main, origin/main, origin/HEAD) BUG: Series(strings).astype("float64[pyarrow]") raising (#50430)
+4878dfe551da2fa8e2bc33e774b595f099bfa74e CI: Unpin pyarrow<10 (#50314)
+9918c84043a340cc0a62625273c842c05f3d71b1 ENH: Add cumsum to ArrowExtensionArray (#50389)
+1b653b1c23f7a5f9fbaede993cf9370dba79b1fc STYLE pre-commit check to ensure that test functions name starts with test (#50397)
+2e1206e112f126c7c8508cba44b5b7975e24ca91 TST: Consolidate tests that raise in groupby (#50404)
+9993ec4059f15758c72bf943ccbc63edfb709f90 CLN: Remove unused rewrite warning (#50403)
+7bc699fbb8dd94177d723dd637d7e99fe0eea65a BUG: pd.DateOffset handle milliseconds (#50020)
+cc478c4c815a85912c3fa8f4ec400f8b261b97e0  BUG guess_Datetime_format doesn't guess 27.03.2003 14:55:00.000 (#50319)
+49ceb1b1066a3474684052aff229f7c7931a56e5 CLN remove unused functions (#50394)
+be2a09e37ab74942378b8297a1ea5c7d6d78e3f3 DOC: Add drop to MultiIndex docs (#50352)
+1ce4455424898eb08719295205faacb2f0d9a4b1 BUG: Fix unintialized strlen when PyUnicode_AsUTF8AndSize fails (#50387)
+fabdd5d26de7adf05da5fdf874d2fa20f2250e94 REF: Rename mode.nullable_backend to mode.dtype_backend (#50291)
+bf7960d004d2e517d1183a790bab3911792b1ed4 DEPR: 1.x deprecation cleanups (#50385)
+4e4be0bfa8f74b9d453aa4163d95660c04ffea0c DEPR: enforce inplaceness for df.loc[:, foo]=bar (#49775)
+4bd55a40e082d311e4fcaa97a203c9348ba8df3a CLN: Remove pre-1.5 deprecations (#50377)
+280fbf6dd472b868e3849e81998db6f266b96514 TST: Replace parameterize with existing test fixture (#50350)
+c49733c274cd7007231b77f0765209aaa02c624b CI: Enable pytest -W:::pandas on some builds (#50354)
+50f19b6ed5f335d2396825ad5ec055f2607a39fa CLN/TST: Remove old filterwarnings (#50368)
+8469f746de31aa40b409c143b3d542f09e2378a0 DOC: don't teach infer_datetime_format in user_guide (#50334)
+ca0434994ea944f81417e304203ca9fc494fd2a5  BUG: out-of-bounds pydatetime with errors='coerce' and non-ISO format coerces all elements to NaT (#50265)
+738564e6eb0f974a3bdb579e0fb644f909918581 TYP: keyword-only NDFrame.fillna (#50345)
+b002462fb52356da5b493ef6fdf7b36598f7252b Fix link to JSON Table Schema (#50363)
+f31da23cac7b06cfa81b0ba27ae103af7bc9da00 CI: Temporarily pin numpy (#50356)
+ca3e0c875fe0dd862afa88b905e8aa4a44815231 DOC: added the link to array in string_arrow.py (#50241)
+5237be554ac5b4618e22a9dbc48e136395607d13 BUG: Index[offset_objects] + Period (#50282)
+6cbd87b38b1d069fb83d3e094866a8192b5cdb63 ENH: Implement fastpath for masked indexes in join (#50310)
+d20c02b3fca0956174b6b1dd0e3a2d24cc700a65 BUG: misleading message when using to_datetime with format='%V %a' (#50309)
+bf05f35d16afe2bfb8f82cb257ee9a982b95fee1 BUG: arithmetic ops not propagating mask when combining mask arrays and numpy (#50322)
+07b363ea8eee184df30b54bfae9acd04511e1cda ENH: Include column for ea comparison in asserters (#50323)
+901501375bd45242f3dc75bc1de593ffb5d8dfd1 BUG: Series constructor raising with NA and bools and Int dtype (#50328)
+edd401b48ffa5e707ad1043b471d2f3d51e51e28 PERF: Calculate mask in interpolate only once (#50326)
+ac762aff0897373c2e25fe666b50ba24b545cd72 BUG: to_numpy for PandasArray does not handle na_value (#50331)
+44fc0fdac887cba288a24d386863aa764fb2a2b6 BUG: read_json raising with table orient and NA values (#50332)
+0e0b987ced52c1461af9f0f5f01feb5555e78ea3 BUG: to_string ignoring formatter for FloatingArray (#50333)
+2fbea3fe245cd2df0ec5758c92906cf5be43a382 DEPR: Enforce deprecation of args/kwargs in Window (#50338)
+608f49a1c7a6999366be459ae954a2ef605ea9f3 WEB: Add blog to our feed (#50337)
+083d030d473260456dabd7d4fd924830e557d97a CI: Use regular solver for docker build (#50341)
+3c55eee968e702b340eb3220c132b4b821132c72 CLN: Fix pylint undefined-loop-variable warnings (#49740)
+:...skipping...
+0971f55d27680245865eecb4f5d6270fdc45b130 (HEAD -> main, origin/main, origin/HEAD) BUG: Series(strings).astype("float64[pyarrow]") raising (#50430)
+4878dfe551da2fa8e2bc33e774b595f099bfa74e CI: Unpin pyarrow<10 (#50314)
+9918c84043a340cc0a62625273c842c05f3d71b1 ENH: Add cumsum to ArrowExtensionArray (#50389)
+1b653b1c23f7a5f9fbaede993cf9370dba79b1fc STYLE pre-commit check to ensure that test functions name starts with test (#50397)
+2e1206e112f126c7c8508cba44b5b7975e24ca91 TST: Consolidate tests that raise in groupby (#50404)
+9993ec4059f15758c72bf943ccbc63edfb709f90 CLN: Remove unused rewrite warning (#50403)
+7bc699fbb8dd94177d723dd637d7e99fe0eea65a BUG: pd.DateOffset handle milliseconds (#50020)
+cc478c4c815a85912c3fa8f4ec400f8b261b97e0  BUG guess_Datetime_format doesn't guess 27.03.2003 14:55:00.000 (#50319)
+49ceb1b1066a3474684052aff229f7c7931a56e5 CLN remove unused functions (#50394)
+be2a09e37ab74942378b8297a1ea5c7d6d78e3f3 DOC: Add drop to MultiIndex docs (#50352)
+1ce4455424898eb08719295205faacb2f0d9a4b1 BUG: Fix unintialized strlen when PyUnicode_AsUTF8AndSize fails (#50387)
+fabdd5d26de7adf05da5fdf874d2fa20f2250e94 REF: Rename mode.nullable_backend to mode.dtype_backend (#50291)
+bf7960d004d2e517d1183a790bab3911792b1ed4 DEPR: 1.x deprecation cleanups (#50385)
+4e4be0bfa8f74b9d453aa4163d95660c04ffea0c DEPR: enforce inplaceness for df.loc[:, foo]=bar (#49775)
+4bd55a40e082d311e4fcaa97a203c9348ba8df3a CLN: Remove pre-1.5 deprecations (#50377)
+280fbf6dd472b868e3849e81998db6f266b96514 TST: Replace parameterize with existing test fixture (#50350)
+c49733c274cd7007231b77f0765209aaa02c624b CI: Enable pytest -W:::pandas on some builds (#50354)
+50f19b6ed5f335d2396825ad5ec055f2607a39fa CLN/TST: Remove old filterwarnings (#50368)
+8469f746de31aa40b409c143b3d542f09e2378a0 DOC: don't teach infer_datetime_format in user_guide (#50334)
+ca0434994ea944f81417e304203ca9fc494fd2a5  BUG: out-of-bounds pydatetime with errors='coerce' and non-ISO format coerces all elements to NaT (#50265)
+738564e6eb0f974a3bdb579e0fb644f909918581 TYP: keyword-only NDFrame.fillna (#50345)
+b002462fb52356da5b493ef6fdf7b36598f7252b Fix link to JSON Table Schema (#50363)
+f31da23cac7b06cfa81b0ba27ae103af7bc9da00 CI: Temporarily pin numpy (#50356)
+ca3e0c875fe0dd862afa88b905e8aa4a44815231 DOC: added the link to array in string_arrow.py (#50241)
+5237be554ac5b4618e22a9dbc48e136395607d13 BUG: Index[offset_objects] + Period (#50282)
+6cbd87b38b1d069fb83d3e094866a8192b5cdb63 ENH: Implement fastpath for masked indexes in join (#50310)
+d20c02b3fca0956174b6b1dd0e3a2d24cc700a65 BUG: misleading message when using to_datetime with format='%V %a' (#50309)
+bf05f35d16afe2bfb8f82cb257ee9a982b95fee1 BUG: arithmetic ops not propagating mask when combining mask arrays and numpy (#50322)
+07b363ea8eee184df30b54bfae9acd04511e1cda ENH: Include column for ea comparison in asserters (#50323)
+901501375bd45242f3dc75bc1de593ffb5d8dfd1 BUG: Series constructor raising with NA and bools and Int dtype (#50328)
+edd401b48ffa5e707ad1043b471d2f3d51e51e28 PERF: Calculate mask in interpolate only once (#50326)
+ac762aff0897373c2e25fe666b50ba24b545cd72 BUG: to_numpy for PandasArray does not handle na_value (#50331)
+44fc0fdac887cba288a24d386863aa764fb2a2b6 BUG: read_json raising with table orient and NA values (#50332)
+0e0b987ced52c1461af9f0f5f01feb5555e78ea3 BUG: to_string ignoring formatter for FloatingArray (#50333)
+2fbea3fe245cd2df0ec5758c92906cf5be43a382 DEPR: Enforce deprecation of args/kwargs in Window (#50338)
+608f49a1c7a6999366be459ae954a2ef605ea9f3 WEB: Add blog to our feed (#50337)
+083d030d473260456dabd7d4fd924830e557d97a CI: Use regular solver for docker build (#50341)
+3c55eee968e702b340eb3220c132b4b821132c72 CLN: Fix pylint undefined-loop-variable warnings (#49740)
+d80002440df612865e237d47794ff2ddc89081d9 CI: Upgrade mypy to 0.991 (#50335)
+cac2e8785f119369c89497647eb0e077ef12854b BUG: to_json segfaults when exception occurs in UTF8 encoding of string (#50324)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git log --pretty=short
+commit 0971f55d27680245865eecb4f5d6270fdc45b130 (HEAD -> main, origin/main, origin/HEAD)
+Author: Luke Manley <lukemanley@gmail.com>
+
+    BUG: Series(strings).astype("float64[pyarrow]") raising (#50430)
+
+commit 4878dfe551da2fa8e2bc33e774b595f099bfa74e
+Author: Patrick Hoefler <61934744+phofl@users.noreply.github.com>
+
+    CI: Unpin pyarrow<10 (#50314)
+
+commit 9918c84043a340cc0a62625273c842c05f3d71b1
+Author: Matthew Roeschke <10647082+mroeschke@users.noreply.github.com>
+
+    ENH: Add cumsum to ArrowExtensionArray (#50389)
+
+commit 1b653b1c23f7a5f9fbaede993cf9370dba79b1fc
+Author: Marco Edward Gorelli <33491632+MarcoGorelli@users.noreply.github.com>
+
+    STYLE pre-commit check to ensure that test functions name starts with test (#50397)
+
+commit 2e1206e112f126c7c8508cba44b5b7975e24ca91
+Author: Richard Shadrach <45562402+rhshadrach@users.noreply.github.com>
+
+    TST: Consolidate tests that raise in groupby (#50404)
+
+commit 9993ec4059f15758c72bf943ccbc63edfb709f90
+Author: Richard Shadrach <45562402+rhshadrach@users.noreply.github.com>
+
+    CLN: Remove unused rewrite warning (#50403)
+
+commit 7bc699fbb8dd94177d723dd637d7e99fe0eea65a
+Author: Marko Pacak <45235847+markopacak@users.noreply.github.com>
+
+    BUG: pd.DateOffset handle milliseconds (#50020)
+
+commit cc478c4c815a85912c3fa8f4ec400f8b261b97e0
+Author: Marco Edward Gorelli <33491632+MarcoGorelli@users.noreply.github.com>
+
+     BUG guess_Datetime_format doesn't guess 27.03.2003 14:55:00.000 (#50319)
+
+commit 49ceb1b1066a3474684052aff229f7c7931a56e5
+Author: Shashwat Agrawal <72117025+ShashwatAgrawal20@users.noreply.github.com>
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git log --pretty=full
+commit 0971f55d27680245865eecb4f5d6270fdc45b130 (HEAD -> main, origin/main, origin/HEAD)
+Author: Luke Manley <lukemanley@gmail.com>
+Commit: GitHub <noreply@github.com>
+
+    BUG: Series(strings).astype("float64[pyarrow]") raising (#50430)
+
+    * BUG: Series(strings).astype("float64[pyarrow]") raising
+
+    * gh refs
+
+    * simplify
+
+commit 4878dfe551da2fa8e2bc33e774b595f099bfa74e
+Author: Patrick Hoefler <61934744+phofl@users.noreply.github.com>
+Commit: GitHub <noreply@github.com>
+
+    CI: Unpin pyarrow<10 (#50314)
+
+    * CI: Unpin pyarrow<10
+
+    * Skip test
+
+commit 9918c84043a340cc0a62625273c842c05f3d71b1
+Author: Matthew Roeschke <10647082+mroeschke@users.noreply.github.com>
+Commit: GitHub <noreply@github.com>
+
+    ENH: Add cumsum to ArrowExtensionArray (#50389)
+
+commit 1b653b1c23f7a5f9fbaede993cf9370dba79b1fc
+Author: Marco Edward Gorelli <33491632+MarcoGorelli@users.noreply.github.com>
+Commit: GitHub <noreply@github.com>
+
+    STYLE pre-commit check to ensure that test functions name starts with test (#50397)
+
+    * add check
+
+    * put test back, its not a helper
+
+    * reword
+
+    * typing
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git log --since=2.days
+commit 0971f55d27680245865eecb4f5d6270fdc45b130 (HEAD -> main, origin/main, origin/HEAD)
+Author: Luke Manley <lukemanley@gmail.com>
+Date:   Sat Dec 24 15:18:48 2022 -0500
+
+    BUG: Series(strings).astype("float64[pyarrow]") raising (#50430)
+
+    * BUG: Series(strings).astype("float64[pyarrow]") raising
+
+    * gh refs
+
+    * simplify
+
+commit 4878dfe551da2fa8e2bc33e774b595f099bfa74e
+Author: Patrick Hoefler <61934744+phofl@users.noreply.github.com>
+Date:   Sat Dec 24 20:49:35 2022 +0100
+
+    CI: Unpin pyarrow<10 (#50314)
+
+    * CI: Unpin pyarrow<10
+
+    * Skip test
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git log --since=2.months
+commit 0971f55d27680245865eecb4f5d6270fdc45b130 (HEAD -> main, origin/main, origin/HEAD)
+Author: Luke Manley <lukemanley@gmail.com>
+Date:   Sat Dec 24 15:18:48 2022 -0500
+
+    BUG: Series(strings).astype("float64[pyarrow]") raising (#50430)
+
+    * BUG: Series(strings).astype("float64[pyarrow]") raising
+
+    * gh refs
+
+    * simplify
+
+commit 4878dfe551da2fa8e2bc33e774b595f099bfa74e
+Author: Patrick Hoefler <61934744+phofl@users.noreply.github.com>
+Date:   Sat Dec 24 20:49:35 2022 +0100
+
+    CI: Unpin pyarrow<10 (#50314)
+
+    * CI: Unpin pyarrow<10
+
+    * Skip test
+
+commit 9918c84043a340cc0a62625273c842c05f3d71b1
+Author: Matthew Roeschke <10647082+mroeschke@users.noreply.github.com>
+Date:   Sat Dec 24 02:01:11 2022 -0800
+
+    ENH: Add cumsum to ArrowExtensionArray (#50389)
+
+commit 1b653b1c23f7a5f9fbaede993cf9370dba79b1fc
+Author: Marco Edward Gorelli <33491632+MarcoGorelli@users.noreply.github.com>
+Date:   Sat Dec 24 07:11:21 2022 +0000
+
+    STYLE pre-commit check to ensure that test functions name starts with test (#50397)
+
+    * add check
+
+    * put test back, its not a helper
+
+    * reword
+
+    * typing
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git log --since=2.years
+commit 0971f55d27680245865eecb4f5d6270fdc45b130 (HEAD -> main, origin/main, origin/HEAD)
+Author: Luke Manley <lukemanley@gmail.com>
+Date:   Sat Dec 24 15:18:48 2022 -0500
+
+    BUG: Series(strings).astype("float64[pyarrow]") raising (#50430)
+
+    * BUG: Series(strings).astype("float64[pyarrow]") raising
+
+    * gh refs
+
+    * simplify
+
+commit 4878dfe551da2fa8e2bc33e774b595f099bfa74e
+Author: Patrick Hoefler <61934744+phofl@users.noreply.github.com>
+Date:   Sat Dec 24 20:49:35 2022 +0100
+
+    CI: Unpin pyarrow<10 (#50314)
+
+    * CI: Unpin pyarrow<10
+
+    * Skip test
+
+commit 9918c84043a340cc0a62625273c842c05f3d71b1
+Author: Matthew Roeschke <10647082+mroeschke@users.noreply.github.com>
+Date:   Sat Dec 24 02:01:11 2022 -0800
+
+    ENH: Add cumsum to ArrowExtensionArray (#50389)
+
+commit 1b653b1c23f7a5f9fbaede993cf9370dba79b1fc
+Author: Marco Edward Gorelli <33491632+MarcoGorelli@users.noreply.github.com>
+Date:   Sat Dec 24 07:11:21 2022 +0000
+
+    STYLE pre-commit check to ensure that test functions name starts with test (#50397)
+
+    * add check
+
+    * put test back, its not a helper
+
+    * reword
+
+    * typing
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git log --since=3.years
+commit 0971f55d27680245865eecb4f5d6270fdc45b130 (HEAD -> main, origin/main, origin/HEAD)
+Author: Luke Manley <lukemanley@gmail.com>
+Date:   Sat Dec 24 15:18:48 2022 -0500
+
+    BUG: Series(strings).astype("float64[pyarrow]") raising (#50430)
+
+    * BUG: Series(strings).astype("float64[pyarrow]") raising
+
+    * gh refs
+
+    * simplify
+
+commit 4878dfe551da2fa8e2bc33e774b595f099bfa74e
+Author: Patrick Hoefler <61934744+phofl@users.noreply.github.com>
+Date:   Sat Dec 24 20:49:35 2022 +0100
+
+    CI: Unpin pyarrow<10 (#50314)
+
+    * CI: Unpin pyarrow<10
+
+    * Skip test
+
+commit 9918c84043a340cc0a62625273c842c05f3d71b1
+Author: Matthew Roeschke <10647082+mroeschke@users.noreply.github.com>
+Date:   Sat Dec 24 02:01:11 2022 -0800
+
+    ENH: Add cumsum to ArrowExtensionArray (#50389)
+
+commit 1b653b1c23f7a5f9fbaede993cf9370dba79b1fc
+Author: Marco Edward Gorelli <33491632+MarcoGorelli@users.noreply.github.com>
+Date:   Sat Dec 24 07:11:21 2022 +0000
+
+    STYLE pre-commit check to ensure that test functions name starts with test (#50397)
+
+    * add check
+
+    * put test back, its not a helper
+
+    * reword
+
+    * typing
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git log --since=10.years
+commit 0971f55d27680245865eecb4f5d6270fdc45b130 (HEAD -> main, origin/main, origin/HEAD)
+Author: Luke Manley <lukemanley@gmail.com>
+Date:   Sat Dec 24 15:18:48 2022 -0500
+
+    BUG: Series(strings).astype("float64[pyarrow]") raising (#50430)
+
+    * BUG: Series(strings).astype("float64[pyarrow]") raising
+
+    * gh refs
+
+    * simplify
+
+commit 4878dfe551da2fa8e2bc33e774b595f099bfa74e
+Author: Patrick Hoefler <61934744+phofl@users.noreply.github.com>
+Date:   Sat Dec 24 20:49:35 2022 +0100
+
+    CI: Unpin pyarrow<10 (#50314)
+
+    * CI: Unpin pyarrow<10
+
+    * Skip test
+
+commit 9918c84043a340cc0a62625273c842c05f3d71b1
+Author: Matthew Roeschke <10647082+mroeschke@users.noreply.github.com>
+Date:   Sat Dec 24 02:01:11 2022 -0800
+
+    ENH: Add cumsum to ArrowExtensionArray (#50389)
+
+commit 1b653b1c23f7a5f9fbaede993cf9370dba79b1fc
+Author: Marco Edward Gorelli <33491632+MarcoGorelli@users.noreply.github.com>
+Date:   Sat Dec 24 07:11:21 2022 +0000
+
+    STYLE pre-commit check to ensure that test functions name starts with test (#50397)
+
+    * add check
+
+    * put test back, its not a helper
+
+    * reword
+
+    * typing
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git log --pretty=format:"%h --%an"
+0971f55d27 --Luke Manley
+4878dfe551 --Patrick Hoefler
+9918c84043 --Matthew Roeschke
+1b653b1c23 --Marco Edward Gorelli
+2e1206e112 --Richard Shadrach
+9993ec4059 --Richard Shadrach
+7bc699fbb8 --Marko Pacak
+cc478c4c81 --Marco Edward Gorelli
+49ceb1b106 --Shashwat Agrawal
+be2a09e37a --Patrick Hoefler
+1ce4455424 --Thomas Li
+fabdd5d26d --Matthew Roeschke
+bf7960d004 --Matthew Roeschke
+4e4be0bfa8 --jbrockmendel
+4bd55a40e0 --Torsten Wörtwein
+280fbf6dd4 --Matthew Roeschke
+c49733c274 --Matthew Roeschke
+50f19b6ed5 --Matthew Roeschke
+8469f746de --Shashwat Agrawal
+ca0434994e --Marco Edward Gorelli
+738564e6eb --Torsten Wörtwein
+b002462fb5 --Michael Mior
+f31da23cac --Marco Edward Gorelli
+ca3e0c875f --ram vikram singh
+5237be554a --jbrockmendel
+6cbd87b38b --Patrick Hoefler
+d20c02b3fc --Marco Edward Gorelli
+bf05f35d16 --Patrick Hoefler
+07b363ea8e --Patrick Hoefler
+901501375b --Patrick Hoefler
+edd401b48f --Patrick Hoefler
+ac762aff08 --Patrick Hoefler
+44fc0fdac8 --Patrick Hoefler
+0e0b987ced --Patrick Hoefler
+2fbea3fe24 --Richard Shadrach
+608f49a1c7 --Patrick Hoefler
+083d030d47 --Patrick Hoefler
+3c55eee968 --Levi Ob
+d80002440d --Patrick Hoefler
+cac2e8785f --Thomas Li
+d0dbd9f721 --Patrick Hoefler
+3da778cb04 --Patrick Hoefler
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git log --pretty=format:"%h --%ae"
+0971f55d27 --lukemanley@gmail.com
+4878dfe551 --61934744+phofl@users.noreply.github.com
+9918c84043 --10647082+mroeschke@users.noreply.github.com
+1b653b1c23 --33491632+MarcoGorelli@users.noreply.github.com
+2e1206e112 --45562402+rhshadrach@users.noreply.github.com
+9993ec4059 --45562402+rhshadrach@users.noreply.github.com
+7bc699fbb8 --45235847+markopacak@users.noreply.github.com
+cc478c4c81 --33491632+MarcoGorelli@users.noreply.github.com
+49ceb1b106 --72117025+ShashwatAgrawal20@users.noreply.github.com
+be2a09e37a --61934744+phofl@users.noreply.github.com
+1ce4455424 --47963215+lithomas1@users.noreply.github.com
+fabdd5d26d --10647082+mroeschke@users.noreply.github.com
+bf7960d004 --10647082+mroeschke@users.noreply.github.com
+4e4be0bfa8 --jbrockmendel@gmail.com
+4bd55a40e0 --twoertwein@users.noreply.github.com
+280fbf6dd4 --10647082+mroeschke@users.noreply.github.com
+c49733c274 --10647082+mroeschke@users.noreply.github.com
+50f19b6ed5 --10647082+mroeschke@users.noreply.github.com
+8469f746de --72117025+ShashwatAgrawal20@users.noreply.github.com
+ca0434994e --33491632+MarcoGorelli@users.noreply.github.com
+738564e6eb --twoertwein@users.noreply.github.com
+b002462fb5 --michael.mior@gmail.com
+f31da23cac --33491632+MarcoGorelli@users.noreply.github.com
+ca3e0c875f --ramvikrams243@gmail.com
+5237be554a --jbrockmendel@gmail.com
+6cbd87b38b --61934744+phofl@users.noreply.github.com
+d20c02b3fc --33491632+MarcoGorelli@users.noreply.github.com
+bf05f35d16 --61934744+phofl@users.noreply.github.com
+07b363ea8e --61934744+phofl@users.noreply.github.com
+901501375b --61934744+phofl@users.noreply.github.com
+edd401b48f --61934744+phofl@users.noreply.github.com
+ac762aff08 --61934744+phofl@users.noreply.github.com
+44fc0fdac8 --61934744+phofl@users.noreply.github.com
+0e0b987ced --61934744+phofl@users.noreply.github.com
+2fbea3fe24 --45562402+rhshadrach@users.noreply.github.com
+608f49a1c7 --61934744+phofl@users.noreply.github.com
+083d030d47 --61934744+phofl@users.noreply.github.com
+3c55eee968 --59812528+Leviob@users.noreply.github.com
+d80002440d --61934744+phofl@users.noreply.github.com
+cac2e8785f --47963215+lithomas1@users.noreply.github.com
+d0dbd9f721 --61934744+phofl@users.noreply.github.com
+3da778cb04 --61934744+phofl@users.noreply.github.com
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git log -p -1
+commit 0971f55d27680245865eecb4f5d6270fdc45b130 (HEAD -> main, origin/main, origin/HEAD)
+Author: Luke Manley <lukemanley@gmail.com>
+Date:   Sat Dec 24 15:18:48 2022 -0500
+
+    BUG: Series(strings).astype("float64[pyarrow]") raising (#50430)
+
+    * BUG: Series(strings).astype("float64[pyarrow]") raising
+
+    * gh refs
+
+    * simplify
+
+diff --git a/doc/source/whatsnew/v2.0.0.rst b/doc/source/whatsnew/v2.0.0.rst
+index 75ba169600..12b0d90e68 100644
+--- a/doc/source/whatsnew/v2.0.0.rst
++++ b/doc/source/whatsnew/v2.0.0.rst
+@@ -830,6 +830,7 @@ Conversion
+ - Bug in :meth:`Series.convert_dtypes` not converting dtype to nullable dtype when :class:`Series` contains ``NA`` and has dtype ``object`` (:issue:`48791`)
+ - Bug where any :class:`ExtensionDtype` subclass with ``kind="M"`` would be interpreted as a timezone type (:issue:`34986`)
+ - Bug in :class:`.arrays.ArrowExtensionArray` that would raise ``NotImplementedError`` when passed a sequence of strings or binary (:issue:`49172`)
++- Bug in :meth:`Series.astype` raising ``pyarrow.ArrowInvalid`` when converting from a non-pyarrow string dtype to a pyarrow numeric type (:issue:`50430`)
+ - Bug in :func:`to_datetime` was not respecting ``exact`` argument when ``format`` was an ISO8601 format (:issue:`12649`)
+ - Bug in :meth:`TimedeltaArray.astype` raising ``TypeError`` when converting to a pyarrow duration type (:issue:`49795`)
+ -
+diff --git a/pandas/core/arrays/arrow/array.py b/pandas/core/arrays/arrow/array.py
+index 6250c298f2..7e954b3d1d 100644
+--- a/pandas/core/arrays/arrow/array.py
++++ b/pandas/core/arrays/arrow/array.py
+@@ -206,17 +206,17 @@ class ArrowExtensionArray(OpsMixin, ExtensionArray):
+         Construct a new ExtensionArray from a sequence of scalars.
+         """
+         pa_dtype = to_pyarrow_type(dtype)
+-        is_cls = isinstance(scalars, cls)
+-        if is_cls or isinstance(scalars, (pa.Array, pa.ChunkedArray)):
+-            if is_cls:
+-                scalars = scalars._data
+-            if pa_dtype:
+-                scalars = scalars.cast(pa_dtype)
+-            return cls(scalars)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git satatu
+git: 'satatu' is not a git command. See 'git --help'.
+
+The most similar command is
+        status
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   AUTHORS.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git commit --amand
+error: unknown option `amand'
+usage: git commit [-a | --interactive | --patch] [-s] [-v] [-u<mode>] [--amend]
+                  [--dry-run] [(-c | -C | --squash) <commit> | --fixup [(amend|reword):]<commit>)]
+                  [-F <file> | -m <msg>] [--reset-author] [--allow-empty]
+                  [--allow-empty-message] [--no-verify] [-e] [--author=<author>]
+                  [--date=<date>] [--cleanup=<mode>] [--[no-]status]
+                  [-i | -o] [--pathspec-from-file=<file> [--pathspec-file-nul]]
+                  [(--trailer <token>[(=|:)<value>])...] [-S[<keyid>]]
+                  [--] [<pathspec>...]
+
+    -q, --quiet           suppress summary after successful commit
+    -v, --verbose         show diff in commit message template
+
+Commit message options
+    -F, --file <file>     read message from file
+    --author <author>     override author for commit
+    --date <date>         override date for commit
+    -m, --message <message>
+                          commit message
+    -c, --reedit-message <commit>
+                          reuse and edit message from specified commit
+    -C, --reuse-message <commit>
+                          reuse message from specified commit
+    --fixup [(amend|reword):]commit
+                          use autosquash formatted message to fixup or amend/reword specified commit
+    --squash <commit>     use autosquash formatted message to squash specified commit
+    --reset-author        the commit is authored by me now (used with -C/-c/--amend)
+    --trailer <trailer>   add custom trailer(s)
+    -s, --signoff         add a Signed-off-by trailer
+    -t, --template <file>
+                          use specified template file
+    -e, --edit            force edit of commit
+    --cleanup <mode>      how to strip spaces and #comments from message
+    --status              include status in commit message template
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+
+Commit contents options
+    -a, --all             commit all changed files
+    -i, --include         add specified files to index for commit
+    --interactive         interactively add files
+    -p, --patch           interactively add changes
+    -o, --only            commit only specified files
+    -n, --no-verify       bypass pre-commit and commit-msg hooks
+    --dry-run             show what would be committed
+    --short               show status concisely
+    --branch              show branch information
+    --ahead-behind        compute full ahead/behind values
+    --porcelain           machine-readable output
+    --long                show status in long format (default)
+    -z, --null            terminate entries with NUL
+    --amend               amend previous commit
+    --no-post-rewrite     bypass post-rewrite hook
+    -u, --untracked-files[=<mode>]
+                          show untracked files, optional modes: all, normal, no. (Default: all)
+    --pathspec-from-file <file>
+                          read pathspec from file
+    --pathspec-file-nul   with --pathspec-from-file, pathspec elements are separated with NUL character
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git commit --amend
+[main 5df70056ab] udaybhai op in the chat BUG: Series(strings).astype("float64[pyarrow]") raising (#50430)
+ Author: Luke Manley <lukemanley@gmail.com>
+ Date: Sat Dec 24 15:18:48 2022 -0500
+ 3 files changed, 20 insertions(+), 11 deletions(-)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git status
+On branch main
+Your branch and 'origin/main' have diverged,
+and have 1 and 1 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   AUTHORS.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git add .
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git commit --amend
+[main 7d51a63b36] udaybhai op in the chat BUG: Series(strings).astype("float64[pyarrow]") raising (#50430)
+ Author: Luke Manley <lukemanley@gmail.com>
+ Date: Sat Dec 24 15:18:48 2022 -0500
+ 4 files changed, 23 insertions(+), 11 deletions(-)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git add .
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git status
+On branch main
+Your branch and 'origin/main' have diverged,
+and have 1 and 1 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git commit --amend
+[main 86076066af] udaybhai op in the chat + BUG: Series(rings).astype("float64[pyarrow]") raising (#50430)
+ Author: Luke Manley <lukemanley@gmail.com>
+ Date: Sat Dec 24 15:18:48 2022 -0500
+ 4 files changed, 23 insertions(+), 11 deletions(-)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)
+$ git log -p -1
+commit 86076066afef54dd3166a9b3607433e8094a573a (HEAD -> main)
+Author: Luke Manley <lukemanley@gmail.com>
+Date:   Sat Dec 24 15:18:48 2022 -0500
+
+    udaybhai op in the chat + BUG: Series(rings).astype("float64[pyarrow]") raising (#50430)
+
+    * BUG: Series(strings).astype("float64[pyarrow]") raising
+
+    * gh refs
+
+    * simplify
+
+diff --git a/AUTHORS.md b/AUTHORS.md
+index 84fcfe05e3..8d3e0689d7 100644
+--- a/AUTHORS.md
++++ b/AUTHORS.md
+@@ -1,3 +1,6 @@
++hello, it's me uday, I welcome you, regarding today's sex party :)
++
++
+ About the Copyright Holders
+ ===========================
+
+diff --git a/doc/source/whatsnew/v2.0.0.rst b/doc/source/whatsnew/v2.0.0.rst
+index 75ba169600..12b0d90e68 100644
+--- a/doc/source/whatsnew/v2.0.0.rst
++++ b/doc/source/whatsnew/v2.0.0.rst
+@@ -830,6 +830,7 @@ Conversion
+ - Bug in :meth:`Series.convert_dtypes` not converting dtype to nullable dtype when :class:`Series` contains ``NA`` and has dtype ``object`` (:issue:`48791`)
+ - Bug where any :class:`ExtensionDtype` subclass with ``kind="M"`` would be interpreted as a timezone type (:issue:`34986`)
+ - Bug in :class:`.arrays.ArrowExtensionArray` that would raise ``NotImplementedError`` when passed a sequence of strings or binary (:issue:`49172`)
++- Bug in :meth:`Series.astype` raising ``pyarrow.ArrowInvalid`` when converting from a non-pyarrow string dtype to a pyarrow numeric type (:issue:`50430`)
+ - Bug in :func:`to_datetime` was not respecting ``exact`` argument when ``format`` was an ISO8601 format (:issue:`12649`)
+ - Bug in :meth:`TimedeltaArray.astype` raising ``TypeError`` when converting to a pyarrow duration type (:issue:`49795`)
+ -
+diff --git a/pandas/core/arrays/arrow/array.py b/pandas/core/arrays/arrow/array.py
+index 6250c298f2..7e954b3d1d 100644
+--- a/pandas/core/arrays/arrow/array.py
++++ b/pandas/core/arrays/arrow/array.py
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/mypanda (main)

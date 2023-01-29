@@ -1,0 +1,140 @@
+1) If we have to delete a whole repository(in git), which command is used ??  
+a-> rm -rf .git
+
+2)Repository meaning in a simple world?
+a-> when we track a folder and add to this folder in git, this folder is now known as a repository.
+
+3)How do we have a crate repository in git?
+a-> git init this command thought we can crate git repository.
+
+4)which command is a crate blank file ??
+a-> touch 
+
+5) git diff ??
+a-> It compare the working directory to stages area's [means red and green lines dif.]
+
+6) git diff --staged ??
+a-> It compare the last commit to staging areas.
+
+7) git commit -a -m "Direct commit" ??
+a-> It commands all tracked files ka stage Kar Deta hee and aek commit bna Deta hee.
+
+8) Which command is if we delete a file through git ??
+a-> git rm [file name]
+
+9)Which command is if we remain a file through git ??
+a-> git mv [file name with extanetion] [file name which we will change]
+    ex:-
+        git mv first.txt uv.txt
+
+10) git rm -- cached ??
+a-> It command is used when we add to .gitignore but when running git status so it is tracked this file, soo we stoping this file from tracking
+    then we used this command.
+
+11) git log ??
+a-> It command shows all commit in a repository 
+
+12) git log -p ??
+a-> It command shows all commits and changes to the repository.
+
+13) git log --stat ??
+a-> It command shows all commits and changes in a smart way to the repository.
+
+14) git log --pretty=oneline ??
+a-> It command shows all commit in one line in a repository
+
+
+14) git log --pretty=short ??
+a-> It command shows all commit short [ time + commit ] in a repository
+
+14) git log --pretty=full ??
+a-> It command shows all commit full means [ author name + time + commit ] in a repository
+
+15) author name: This creates a file 
+    and
+    commit name: This is a change to a file
+
+16) git log --since=2.days
+a-> It command shows all commit in the last 2 days in a repository
+
+17) git log --since=2.months 
+a-> It command shows all commit in the last 2 months in a repository
+
+18) git log --since=2.years
+a-> It command shows all commit in the last 2 years in a repository
+
+19) git log --pretty=format:"%h --%an"
+a-> It command means %h = abbreviated commit hash & %an = author-name
+
+-->>> For more information please search this website: [ https://git-scm.com/docs/git-log ]
+
+20) git log --pretty=format:"%h --%ae"
+a-> It command means %h = abbreviated commit hash & %ae = author email-id
+
+21) git log -p -1 ??
+a-> It command  shows the one commit in the repository
+ 
+22) git commit --amend ??
+a-> In this command is mrajed to our changes to the whole commit  
+
+-->> When we right a [git commit --amend than] then one editor open it is know as VM editor 
+     and 
+     it's worked 
+     if writing something then first of all type [ i ]  
+     and if back in git then type [ ESC : wq ]
+
+23) which command that we want to unstage a file ??
+a-> git restore --staged  [file name]
+   ex. ->>>
+    git restore --staged uday.docx
+
+24) git checkout -- [file name] ??
+a-> This commade is matched the last commit of git.That means last commit sathe compare kari de che
+
+25) git checkout -f ??
+a-> This command is match our working directry to our last commit.
+
+26) git remote mean??
+a-> It means website means it connected to our local directory to GitHub.
+  and this process is to easy.
+  
+  --------->Imp questions: How to push in GitHub??
+           >>
+           >>
+             1. git remote
+
+             1.1 git remote -v 
+                 
+                origin  git@github.com:UVwithHack/Demo.git (fetch)
+                origin  git@github.com:UVwithHack/Demo.git (push)
+              
+                          
+             2. git remote add [origin]  [git@github.com:UVwithHack/uday.git]
+
+             3. git push -u origin master
+
+             3.3 we push and we can see [warning: could not find UI helper 'GitHub.UI'] this 
+                 then we set this problem first of all  
+                           
+			 -- git remote set-url origin (git@github.com:UVwithHack/Demo.git)
+				
+					this bracket ssh url if above(HTTPS URL) not work than we 
+					we set this 
+
+27) Alias In Git.
+a-> Alias is a keyword that is sorted from the command.
+    like
+      git status alias
+      git st  
+ 
+    (In this command is: git config --global alias.s status )
+
+
+28) git checkout -b [Branch name] ??
+a-> This command is used a create a new branch and also add in sab-branches in git.
+
+29)Resolving Merge Conflicts
+a->
+
+
+     

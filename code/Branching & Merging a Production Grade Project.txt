@@ -1,0 +1,222 @@
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite
+$ git s
+fatal: not a git repository (or any of the parent directories): .git
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite
+$ git init
+Initialized empty Git repository in C:/Users/Uday Vara/Documents/Git Tutorial/Git/MyWebsite/.git/
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (master)
+$ git s
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        index.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (master)
+$ git add .
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (master)
+$ git s
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.html
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (master)
+$ git commit -m "Initial commit"
+[master (root-commit) 3902769] Initial commit
+ 1 file changed, 48 insertions(+)
+ create mode 100644 index.html
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (master)
+$ git s
+On branch master
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (master)
+$ git checkout -b additing
+Switched to a new branch 'additing'
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (additing)
+$ git status
+On branch additing
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (additing)
+$ git add .
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (additing)
+$ git status
+On branch additing
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   index.html
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (additing)
+$ git commit -m "Broken festures"
+[additing fb3b903] Broken festures
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (additing)
+$ git status
+On branch additing
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (additing)
+$ git checkout master
+Switched to branch 'master'
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (master)
+$ git add .
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (master)
+$ git commit -m "Add About Us"
+[master 5309a7b] Add About Us
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (master)
+$ git checkout additnig
+error: pathspec 'additnig' did not match any file(s) known to git
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (master)
+$ git checkout additing
+Switched to branch 'additing'
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (additing)
+$ git status
+On branch additing
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (additing)
+$ git s
+On branch additing
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (additing)
+$ git add .
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (additing)
+$ git s
+On branch additing
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   index.html
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (additing)
+$ git commit -m "fixed the structure"
+[additing faf2c65] fixed the structure
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (additing)
+$ git log
+commit faf2c6535b2a0cee2b8192d86d8859c0d3fc09b9 (HEAD -> additing)
+Author: uday <udayvara26@gamail.com>
+Date:   Thu Jan 12 13:05:36 2023 +0530
+
+    fixed the structure
+
+commit fb3b903612a7c24dca9094d26e0bed17f8bffab7
+Author: uday <udayvara26@gamail.com>
+Date:   Thu Jan 12 12:55:54 2023 +0530
+
+    Broken festures
+
+commit 39027694e835f696f01a3a8ab300df8dfb955d02
+Author: uday <udayvara26@gamail.com>
+Date:   Thu Jan 12 12:48:40 2023 +0530
+
+    Initial commit
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (additing)
+$ git s
+On branch additing
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (additing)
+$ git checkout additing
+Already on 'additing'
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (additing)
+$ git checkout master
+Switched to branch 'master'
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (master)
+$ git checkout additing
+Switched to branch 'additing'
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (additing)
+$ git commit -a -m "Made changes to dropdown"
+[additing f787c31] Made changes to dropdown
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (additing)
+$ git checkout additing
+Already on 'additing'
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (additing)
+$ git checkout master
+Switched to branch 'master'
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (master)
+$ git s
+On branch master
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (master)
+$ git merge additing
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (master|MERGING)
+$ git s
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (master|MERGING)
+$ git add .
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git/MyWebsite (master|MERGING)
+$ git commit
+[master 2e58dfc] Merge branch 'additing'

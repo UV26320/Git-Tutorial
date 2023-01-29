@@ -1,0 +1,120 @@
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git
+$ git statu
+git: 'statu' is not a git command. See 'git --help'.
+
+The most similar commands are
+        status
+        stage
+        stash
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git
+$ git status
+fatal: not a git repository (or any of the parent directories): .git
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git
+$ git status
+fatal: not a git repository (or any of the parent directories): .git
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git
+$ git init
+Initialized empty Git repository in C:/Users/Uday Vara/Documents/Git/.git/
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        1st.txt
+        Exal.xlsx
+        uday.pptx
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git (master)
+$ git add --a
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   1st.txt
+        new file:   Exal.xlsx
+        new file:   uday.pptx
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git (master)
+$ git commit -m "Initial commit"
+[master (root-commit) 5115b42] Initial commit
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 1st.txt
+ create mode 100644 Exal.xlsx
+ create mode 100644 uday.pptx
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git (master)
+$ git log
+commit 5115b42584f6977a221a158b67b1b77f852c7285 (HEAD -> master)
+Author: uday <udayvara26@gamail.com>
+Date:   Wed Dec 21 18:16:45 2022 +0530
+
+    Initial commit
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   1st.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git (master)
+$  git add --a
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   1st.txt
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git (master)
+$ git commit -m "Every thing is all right"
+[master 3ab5d72] Every thing is all right
+ 1 file changed, 1 insertion(+)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git (master)
+$ git log
+commit 3ab5d726de43417ba836fb1bd68e99aca1363644 (HEAD -> master)
+Author: uday <udayvara26@gamail.com>
+Date:   Wed Dec 21 18:23:59 2022 +0530
+
+    Every thing is all right
+
+commit 5115b42584f6977a221a158b67b1b77f852c7285
+Author: uday <udayvara26@gamail.com>
+Date:   Wed Dec 21 18:16:45 2022 +0530
+
+    Initial commit
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git (master)
+$ 
+

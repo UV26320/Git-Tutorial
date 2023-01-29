@@ -1,0 +1,480 @@
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git
+$ git s
+fatal: not a git repository (or any of the parent directories): .git
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git
+$ git add --a
+fatal: not a git repository (or any of the parent directories): .git
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git
+$ git init
+Initialized empty Git repository in C:/Users/Uday Vara/Documents/Git Tutorial/Git/.git/
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git add --a
+warning: adding embedded git repository: MyWebsite
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint:
+hint:   git submodule add <url> MyWebsite
+hint:
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint:
+hint:   git rm --cached MyWebsite
+hint:
+hint: See "git help submodule" for more information.
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git add .
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git s
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   .gitignore
+        new file:   Div/Total amount.docx
+        new file:   ISSUS/error - Copy (2).log
+        new file:   ISSUS/error - Copy (3).log
+        new file:   ISSUS/error - Copy (4).log
+        new file:   ISSUS/error - Copy (5).log
+        new file:   ISSUS/error - Copy.log
+        new file:   ISSUS/error.log
+        new file:   MyWebsite
+        new file:   heey.pptx
+        new file:   static/Div/hey its me.txt
+        new file:   static/Hii i want to you ()().txt
+        new file:   uday.docx
+        new file:   uv1 -second.txt
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git commit -m "Initial commit"
+[master (root-commit) edd3c09] Initial commit
+ 14 files changed, 102 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 Div/Total amount.docx
+ create mode 100644 ISSUS/error - Copy (2).log
+ create mode 100644 ISSUS/error - Copy (3).log
+ create mode 100644 ISSUS/error - Copy (4).log
+ create mode 100644 ISSUS/error - Copy (5).log
+ create mode 100644 ISSUS/error - Copy.log
+ create mode 100644 ISSUS/error.log
+ create mode 160000 MyWebsite
+ create mode 100644 heey.pptx
+ create mode 100644 static/Div/hey its me.txt
+ create mode 100644 static/Hii i want to you ()().txt
+ create mode 100644 uday.docx
+ create mode 100644 uv1 -second.txt
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git s
+On branch master
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git s
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Index.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git add .
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git s
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   Index.html
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git commit -m "Added index.html"
+[master 4cf8957] Added index.html
+ 1 file changed, 12 insertions(+)
+ create mode 100644 Index.html
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git s
+On branch master
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git s
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git add .
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git commit -m "Added index.html title number 1"
+[master 0137cfe] Added index.html title number 1
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git s
+On branch master
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git s
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git add .
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git commit -m "Added index.html title number 2"
+[master 7dc3fa7] Added index.html title number 2
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git add .
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git s
+On branch master
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git log
+commit 7dc3fa70bc91aa8a69a6922a07f567a1f16a93ac (HEAD -> master)
+Author: uday <udayvara26@gamail.com>
+Date:   Thu Jan 12 15:39:23 2023 +0530
+
+    Added index.html title number 2
+
+commit 0137cfea34a49079b1afe556d921a2bb1b7c48b9
+Author: uday <udayvara26@gamail.com>
+Date:   Thu Jan 12 15:38:31 2023 +0530
+
+    Added index.html title number 1
+
+commit 4cf89570b05c4b690b9248bf0cea854b86f4a685
+Author: uday <udayvara26@gamail.com>
+Date:   Thu Jan 12 15:37:00 2023 +0530
+
+    Added index.html
+
+commit edd3c09166da5969bf1edae44e221d7b1b134c23
+Author: uday <udayvara26@gamail.com>
+Date:   Thu Jan 12 15:32:23 2023 +0530
+
+    Initial commit
+:
+
+commit 0137cfea34a49079b1afe556d921a2bb1b7c48b9
+Author: uday <udayvara26@gamail.com>
+Date:   Thu Jan 12 15:38:31 2023 +0530
+
+    Added index.html title number 1
+
+commit 4cf89570b05c4b690b9248bf0cea854b86f4a685
+Author: uday <udayvara26@gamail.com>
+Date:   Thu Jan 12 15:37:00 2023 +0530
+
+    Added index.html
+
+commit edd3c09166da5969bf1edae44e221d7b1b134c23
+Author: uday <udayvara26@gamail.com>
+Date:   Thu Jan 12 15:32:23 2023 +0530
+
+    Initial commit
+:
+
+commit 0137cfea34a49079b1afe556d921a2bb1b7c48b9
+Author: uday <udayvara26@gamail.com>
+Date:   Thu Jan 12 15:38:31 2023 +0530
+
+    Added index.html title number 1
+
+commit 4cf89570b05c4b690b9248bf0cea854b86f4a685
+Author: uday <udayvara26@gamail.com>
+Date:   Thu Jan 12 15:37:00 2023 +0530
+
+    Added index.html
+
+commit edd3c09166da5969bf1edae44e221d7b1b134c23
+Author: uday <udayvara26@gamail.com>
+Date:   Thu Jan 12 15:32:23 2023 +0530
+
+    Initial commit
+(END)
+
+commit 0137cfea34a49079b1afe556d921a2bb1b7c48b9
+Author: uday <udayvara26@gamail.com>
+Date:   Thu Jan 12 15:38:31 2023 +0530
+
+    Added index.html title number 1
+
+commit 4cf89570b05c4b690b9248bf0cea854b86f4a685
+Author: uday <udayvara26@gamail.com>
+Date:   Thu Jan 12 15:37:00 2023 +0530
+
+    Added index.html
+
+commit edd3c09166da5969bf1edae44e221d7b1b134c23
+Author: uday <udayvara26@gamail.com>
+Date:   Thu Jan 12 15:32:23 2023 +0530
+
+    Initial commit
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git checkout -b issue
+Switched to a new branch 'issue'
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (issue)
+$ git s
+On branch issue
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (issue)
+$ git commit -a -m "This is c4"
+[issue fd416a5] This is c4
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (issue)
+$ git commit -a -m "This is c5"
+[issue 51f6165] This is c5
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (issue)
+$ git commit -a -m "This is c6"
+[issue 81e9e74] This is c6
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (issue)
+$ git s
+On branch issue
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (issue)
+$ git checkout master
+Switched to branch 'master'
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git commit -a -m "This is c7"
+[master f41ee9f] This is c7
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git merge issue
+Auto-merging Index.html
+CONFLICT (content): Merge conflict in Index.html
+Automatic merge failed; fix conflicts and then commit the result.
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master|MERGING)
+$ git s
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   Index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master|MERGING)
+$ git add .
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master|MERGING)
+$ git s
+On branch master
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+        modified:   Index.html
+
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master|MERGING)
+$ git commit -m "Merged issue"
+[master 23155dd] Merged issue
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git log
+commit 23155ddee012b93e02afb54a58e3d0eb421b7648 (HEAD -> master)
+Merge: f41ee9f 81e9e74
+Author: uday <udayvara26@gamail.com>
+Date:   Thu Jan 12 15:50:54 2023 +0530
+
+    Merged issue
+
+commit f41ee9f14cdb1f3772f02dd914636e2c0d2fe25b
+Author: uday <udayvara26@gamail.com>
+Date:   Thu Jan 12 15:46:39 2023 +0530
+
+    This is c7
+
+commit 81e9e749278fa635cb8aa87654f72b254e43d7fc (issue)
+Author: uday <udayvara26@gamail.com>
+Date:   Thu Jan 12 15:44:08 2023 +0530
+
+    This is c6
+:...skipping...
+commit 23155ddee012b93e02afb54a58e3d0eb421b7648 (HEAD -> master)
+Merge: f41ee9f 81e9e74
+Author: uday <udayvara26@gamail.com>
+Date:   Thu Jan 12 15:50:54 2023 +0530
+
+    Merged issue
+
+commit f41ee9f14cdb1f3772f02dd914636e2c0d2fe25b
+Author: uday <udayvara26@gamail.com>
+Date:   Thu Jan 12 15:46:39 2023 +0530
+
+    This is c7
+
+commit 81e9e749278fa635cb8aa87654f72b254e43d7fc (issue)
+Author: uday <udayvara26@gamail.com>
+Date:   Thu Jan 12 15:44:08 2023 +0530
+
+    This is c6
+
+commit 51f61655dd23e5eeb6bdc7baab64f28d4a69da1b
+Author: uday <udayvara26@gamail.com>
+Date:   Thu Jan 12 15:43:54 2023 +0530
+
+    This is c5
+
+commit fd416a5a2136f7865d96d3cf552d2e2b6425387a
+Author: uday <udayvara26@gamail.com>
+Date:   Thu Jan 12 15:42:50 2023 +0530
+
+    This is c4
+
+commit 7dc3fa70bc91aa8a69a6922a07f567a1f16a93ac
+Author: uday <udayvara26@gamail.com>
+Date:   Thu Jan 12 15:39:23 2023 +0530
+
+    Added index.html title number 2
+
+commit 0137cfea34a49079b1afe556d921a2bb1b7c48b9
+Author: uday <udayvara26@gamail.com>
+Date:   Thu Jan 12 15:38:31 2023 +0530
+
+    Added index.html title number 1
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git branch
+  issue
+* master
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git checkout -b issue2
+Switched to a new branch 'issue2'
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (issue2)
+$ git branch
+  issue
+* issue2
+  master
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (issue2)
+$ git add ,
+fatal: pathspec ',' did not match any files
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (issue2)
+$ git add .
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (issue2)
+$ git commit -m "Somethig is wrong"
+[issue2 0123322] Somethig is wrong
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (issue2)
+$ git checout master
+git: 'checout' is not a git command. See 'git --help'.
+
+The most similar command is
+        checkout
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (issue2)
+$ git checkout master
+Switched to branch 'master'
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git branch
+  issue
+  issue2
+* master
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git branch -v
+  issue  81e9e74 This is c6
+  issue2 0123322 Somethig is wrong
+* master 23155dd Merged issue
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git branch --merged
+  issue
+* master
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git branch --no-merged
+  issue2
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git branch -d issue2
+error: The branch 'issue2' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D issue2'.
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git branch -d issue
+Deleted branch issue (was 81e9e74).
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git branch
+  issue2
+* master
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git branch -D issue
+error: branch 'issue' not found.
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git branch -D issue2
+Deleted branch issue2 (was 0123322).
+
+Uday Vara@LAPTOP-FD40S4FS MINGW64 ~/Documents/Git Tutorial/Git (master)
+$ git branch
+* master
